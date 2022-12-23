@@ -1,0 +1,13 @@
+name: hello_world_flutter_action
+description: A GitHub Action written in dart.
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+  
+dependencies:
+  actions_toolkit_dart: ^0.5.1
+  
+dev_dependencies:
+  test: '>=1.15.0 <2.0.0'
