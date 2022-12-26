@@ -11,8 +11,8 @@ RUN cat .dart_tool/package_config.json
 COPY . .
 # Ensure packages are still up-to-date if anything has changed
 RUN dart pub get --offline
-RUN pwd && ls -a
 RUN dart analyze
 RUN dart compile exe main.dart -o main
+RUN pwd && ls -a
 
-ENTRYPOINT ["./main"]
+ENTRYPOINT ["/app/main"]
