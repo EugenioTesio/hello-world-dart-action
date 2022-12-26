@@ -1,13 +1,15 @@
-FROM google/dart
+# Specify the Dart SDK base image version using dart:<version> (ex: dart:2.12)
+FROM dart:stable AS build
 
+# Resolve app dependencies.
 WORKDIR /app
+COPY pubspec.* ./
+RUN dart pub get
 
-ADD pubspec.* /app/
-RUN ls -a
-RUN pub get
-ADD . /app
-RUN pub get --offline
-RUN ls -a
+# Copy app source code and AOT compile it.
+COPY . .
+# Ensure packages are still up-to-date if anything has changed
+RUN dart pub get --offline
 
 CMD []
 ENTRYPOINT ["/usr/bin/dart", "main.dart"]
