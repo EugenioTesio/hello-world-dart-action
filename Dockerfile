@@ -5,7 +5,7 @@ FROM dart:stable AS build
 WORKDIR /app
 COPY pubspec.* ./
 RUN dart pub get
-RUN echo .dart_tool/package_config.json
+RUN cat .dart_tool/package_config.json
 
 # Copy app source code and AOT compile it.
 COPY . .
