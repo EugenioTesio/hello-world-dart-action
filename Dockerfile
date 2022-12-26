@@ -13,5 +13,6 @@ COPY . .
 RUN dart pub get --offline
 RUN pwd && ls -a
 RUN dart analyze
+RUN dart compile exe main.dart -o main
 
-ENTRYPOINT ["dart", "main.dart"]
+ENTRYPOINT ["./main"]
