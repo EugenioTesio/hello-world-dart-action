@@ -4,13 +4,11 @@ FROM dart:stable AS build
 # Resolve app dependencies.
 WORKDIR /app
 COPY pubspec.* ./
-RUN pwd && ls -a
 RUN dart pub get
-RUN pwd && ls -a
+RUN echo .dart_tool/package_config.json
 
 # Copy app source code and AOT compile it.
 COPY . .
-RUN pwd && ls -a
 # Ensure packages are still up-to-date if anything has changed
 RUN dart pub get --offline
 RUN pwd && ls -a
