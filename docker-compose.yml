@@ -1,3 +1,0 @@
-services: 
-  hello-world-service:
-    image: ubuntu:latest
