@@ -5,14 +5,14 @@ FROM dart:stable AS build
 WORKDIR /app
 COPY pubspec.* ./
 RUN dart pub get
-RUN cat .dart_tool/package_config.json
 
 # Copy app source code and AOT compile it.
 COPY . .
 # Ensure packages are still up-to-date if anything has changed
 RUN dart pub get --offline
 RUN dart analyze
+
+# Compiling the app
 RUN dart compile exe main.dart -o main
-RUN pwd && ls -a
 
 ENTRYPOINT ["/app/main"]
