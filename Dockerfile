@@ -12,6 +12,6 @@ COPY . .
 RUN dart pub get --offline
 
 CMD []
-ENTRYPOINT ["/usr/bin/dart", "main.dart"]
+ENTRYPOINT ["dart", "main.dart"]
 
 # Why run pub get twice => https://hub.docker.com/r/google/dart/
