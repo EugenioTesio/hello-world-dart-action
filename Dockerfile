@@ -3,11 +3,11 @@ FROM google/dart
 WORKDIR /app
 
 ADD pubspec.* /app/
-RUN pwd
+RUN ls -a
 RUN pub get
 ADD . /app
 RUN pub get --offline
-RUN pwd
+RUN ls -a
 
 CMD []
 ENTRYPOINT ["/usr/bin/dart", "main.dart"]
