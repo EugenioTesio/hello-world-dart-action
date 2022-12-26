@@ -11,4 +11,5 @@ COPY . .
 # Ensure packages are still up-to-date if anything has changed
 RUN dart pub get --offline
 
-CMD ["dart", "main.dart"]
+CMD ["ls", "-a", "&&", "pwd"]
+ENTRYPOINT ["dart", "main.dart"]
