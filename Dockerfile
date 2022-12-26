@@ -10,6 +10,6 @@ RUN dart pub get
 COPY . .
 # Ensure packages are still up-to-date if anything has changed
 RUN dart pub get --offline
+RUN pwd && ls -a
 
-CMD ["ls", "-a", "&&", "pwd"]
 ENTRYPOINT ["dart", "main.dart"]
