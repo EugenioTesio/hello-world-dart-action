@@ -12,5 +12,6 @@ COPY . .
 # Ensure packages are still up-to-date if anything has changed
 RUN dart pub get --offline
 RUN pwd && ls -a
+RUN dart analyze
 
 ENTRYPOINT ["dart", "main.dart"]
